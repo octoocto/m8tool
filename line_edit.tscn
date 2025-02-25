@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://ydp54txlm205"]
+
+[ext_resource type="Theme" uid="uid://tsr3tsg1bvgf" path="res://theme.tres" id="1_gjrfs"]
+
+[sub_resource type="GDScript" id="GDScript_8g3c4"]
+script/source = "extends LineEdit
+
+func _make_custom_tooltip(for_text: String) -> Object:
+    var tooltip := preload(\"res://tooltip.tscn\").instantiate()
+    tooltip.get_node(\"%RichTextLabel\").text = for_text
+    return tooltip
+"
+
+[node name="LineEdit" type="LineEdit"]
+size_flags_horizontal = 3
+tooltip_text = "A comma-separated list of path patterns to remove (skipped during copy/conversion process).
+
+If using \"Process in Place\", any matched paths will be backed up to the Output Folder, but will be removed from the Input Folder."
+theme = ExtResource("1_gjrfs")
+text = "*.txt,*__MACOSX*,*.DS_Store"
+script = SubResource("GDScript_8g3c4")

@@ -1,0 +1,42 @@
+[remap]
+
+importer="font_data_dynamic"
+type="FontFile"
+uid="uid://w8waksxtph5g"
+path="res://.godot/imported/m8stealth57.ttf-cfaddbec0a9715117bb68a57ed65a439.fontdata"
+
+[deps]
+
+source_file="res://assets/m8stealth57.ttf"
+dest_files=["res://.godot/imported/m8stealth57.ttf-cfaddbec0a9715117bb68a57ed65a439.fontdata"]
+
+[params]
+
+Rendering=null
+antialiasing=0
+generate_mipmaps=false
+disable_embedded_bitmaps=true
+multichannel_signed_distance_field=false
+msdf_pixel_range=8
+msdf_size=48
+allow_system_fallback=true
+force_autohinter=false
+hinting=2
+subpixel_positioning=0
+keep_rounding_remainders=true
+oversampling=0.0
+Fallbacks=null
+fallbacks=[Object(SystemFont,"resource_local_to_scene":false,"resource_name":"","fallbacks":Array[Font]([]),"font_names":PackedStringArray("monospace"),"font_italic":false,"font_weight":400,"font_stretch":100,"antialiasing":1,"generate_mipmaps":false,"disable_embedded_bitmaps":true,"allow_system_fallback":true,"force_autohinter":false,"hinting":1,"subpixel_positioning":1,"keep_rounding_remainders":true,"multichannel_signed_distance_field":false,"msdf_pixel_range":16,"msdf_size":48,"oversampling":0.0,"script":null)
+]
+Compress=null
+compress=true
+preload=[{
+"chars": [108],
+"glyphs": [],
+"name": "New Configuration",
+"size": Vector2i(16, 0),
+"variation_embolden": 0.0
+}]
+language_support={}
+script_support={}
+opentype_features={}

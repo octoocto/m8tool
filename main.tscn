@@ -1,0 +1,454 @@
+[gd_scene load_steps=13 format=3 uid="uid://ceo27vovxv2we"]
+
+[ext_resource type="Theme" uid="uid://tsr3tsg1bvgf" path="res://theme.tres" id="1_016hf"]
+[ext_resource type="Script" uid="uid://ba6qa6f5u3wtu" path="res://main.gd" id="2_c6be0"]
+[ext_resource type="Script" uid="uid://dyqr7045u6vws" path="res://menu_bar.gd" id="2_gjscn"]
+[ext_resource type="PackedScene" uid="uid://6o4el1w3epde" path="res://menu_file_optimizer.tscn" id="4_u6g2g"]
+[ext_resource type="PackedScene" uid="uid://c5diwowsgmb3e" path="res://theme_manager.tscn" id="5_lquwl"]
+[ext_resource type="Texture2D" uid="uid://dlj0dpnby78q1" path="res://assets/FadeDisabled.png" id="6_4c57u"]
+[ext_resource type="Texture2D" uid="uid://b33hbixvpgpu6" path="res://assets/StatusInfo.png" id="6_efxa6"]
+[ext_resource type="Texture2D" uid="uid://bjmksriiwdper" path="res://assets/Folder.svg" id="8_4c57u"]
+[ext_resource type="Texture2D" uid="uid://qswgdy02yvvn" path="res://assets/StatusSuccess.png" id="8_dg77c"]
+[ext_resource type="Texture2D" uid="uid://tmurvu6hlg18" path="res://assets/ColorPick.png" id="9_efxa6"]
+[ext_resource type="Texture2D" uid="uid://bjcnaagpbxb0" path="res://assets/Tools.png" id="12_ycdy4"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vl8l2"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+
+[node name="PanelContainer" type="PanelContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_016hf")
+script = ExtResource("2_c6be0")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="MenuBar" type="PanelContainer" parent="VBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_vl8l2")
+script = ExtResource("2_gjscn")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/MenuBar"]
+layout_mode = 2
+mouse_filter = 2
+alignment = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/MenuBar/HBoxContainer"]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = " m8-tool"
+vertical_alignment = 1
+
+[node name="ExitButton" type="Button" parent="VBoxContainer/MenuBar/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "x"
+flat = true
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="TabContainer" type="TabContainer" parent="VBoxContainer/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+current_tab = 0
+
+[node name="File Optimizer" parent="VBoxContainer/MarginContainer/TabContainer" instance=ExtResource("4_u6g2g")]
+unique_name_in_owner = true
+layout_mode = 2
+metadata/_tab_name = "ORGANIZER"
+metadata/_tab_index = 0
+
+[node name="Theme Generator" parent="VBoxContainer/MarginContainer/TabContainer" instance=ExtResource("5_lquwl")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1
+
+[node name="Utilities" type="MarginContainer" parent="VBoxContainer/MarginContainer/TabContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+metadata/_tab_index = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/MarginContainer/TabContainer/Utilities"]
+layout_mode = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer/MarginContainer/TabContainer/Utilities/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/MarginContainer/TabContainer/Utilities/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 8
+text = "Tick Resolution & Swing Calculator "
+vertical_alignment = 2
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/MarginContainer/TabContainer/Utilities/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 0
+tooltip_text = "Given a desired tempo, tick resolution, and swing,
+calculate the required tempo and groove to input into the M8."
+texture = ExtResource("6_efxa6")
+stretch_mode = 4
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer/MarginContainer/TabContainer/Utilities/VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/MarginContainer/TabContainer/Utilities/VBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/MarginContainer/TabContainer/Utilities/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/MarginContainer/TabContainer/Utilities/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/MarginContainer/TabContainer/Utilities/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+text = "Desired Tempo"
+
+[node name="RangeDesiredTempo" type="SpinBox" parent="VBoxContainer/MarginContainer/TabContainer/Utilities/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+max_value = 999.0
+step = 0.01
+value = 120.0
+suffix = "bpm"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer/MarginContainer/TabContainer/Utilities/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/MarginContainer/TabContainer/Utilities/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+text = "Desired Tick Res"
+
+[node name="RangeDesiredTickRes" type="SpinBox" parent="VBoxContainer/MarginContainer/TabContainer/Utilities/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer2"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+max_value = 999.0
+value = 6.0
+suffix = "ticks"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer/MarginContainer/TabContainer/Utilities/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/MarginContainer/TabContainer/Utilities/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer3"]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+text = "Desired Swing"
+
+[node name="RangeDesiredSwing" type="SpinBox" parent="VBoxContainer/MarginContainer/TabContainer/Utilities/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer3"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+step = 0.01
+value = 50.0
+update_on_text_changed = true
+suffix = "%"
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/MarginContainer/TabContainer/Utilities/VBoxContainer/HBoxContainer"]
+modulate = Color(1, 1, 1, 0.5)
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("6_4c57u")
+stretch_mode = 3
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer/MarginContainer/TabContainer/Utilities/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer/MarginContainer/TabContainer/Utilities/VBoxContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/MarginContainer/TabContainer/Utilities/VBoxContainer/HBoxContainer/VBoxContainer2/HBoxContainer3"]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+text = "Project Tempo"
+
+[node name="RangeProjectTempo" type="SpinBox" parent="VBoxContainer/MarginContainer/TabContainer/Utilities/VBoxContainer/HBoxContainer/VBoxContainer2/HBoxContainer3"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+max_value = 999.0
+step = 0.01
+value = 120.0
+editable = false
+suffix = "bpm"
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="VBoxContainer/MarginContainer/TabContainer/Utilities/VBoxContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/MarginContainer/TabContainer/Utilities/VBoxContainer/HBoxContainer/VBoxContainer2/HBoxContainer4"]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+text = "Project Groove"
+
+[node name="LabelProjectGroove" type="LineEdit" parent="VBoxContainer/MarginContainer/TabContainer/Utilities/VBoxContainer/HBoxContainer/VBoxContainer2/HBoxContainer4"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "6, 6"
+editable = false
+expand_to_text_length = true
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="VBoxContainer/MarginContainer/TabContainer/Utilities/VBoxContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/MarginContainer/TabContainer/Utilities/VBoxContainer/HBoxContainer/VBoxContainer2/HBoxContainer5"]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+text = "Actual Swing"
+
+[node name="RangeProjectSwing" type="SpinBox" parent="VBoxContainer/MarginContainer/TabContainer/Utilities/VBoxContainer/HBoxContainer/VBoxContainer2/HBoxContainer5"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+step = 0.01
+value = 50.0
+editable = false
+update_on_text_changed = true
+suffix = "%"
+
+[node name="HBoxContainer6" type="HBoxContainer" parent="VBoxContainer/MarginContainer/TabContainer/Utilities/VBoxContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/MarginContainer/TabContainer/Utilities/VBoxContainer/HBoxContainer/VBoxContainer2/HBoxContainer6"]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+text = "Time per Tick"
+
+[node name="RangeProjectMSPerTick" type="SpinBox" parent="VBoxContainer/MarginContainer/TabContainer/Utilities/VBoxContainer/HBoxContainer/VBoxContainer2/HBoxContainer6"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+max_value = 10000.0
+step = 0.01
+value = 20.83
+editable = false
+update_on_text_changed = true
+suffix = "ms"
+
+[node name="HomeContainer" type="PanelContainer" parent="VBoxContainer/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"HomePanelContainer"
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/MarginContainer/HomeContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/MarginContainer/HomeContainer/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/MarginContainer/HomeContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+bbcode_enabled = true
+text = "Program Check"
+fit_content = true
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer/MarginContainer/HomeContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="VBoxContainer/MarginContainer/HomeContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/MarginContainer/HomeContainer/MarginContainer/VBoxContainer/HBoxContainer5"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/MarginContainer/HomeContainer/MarginContainer/VBoxContainer/HBoxContainer5/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/MarginContainer/HomeContainer/MarginContainer/VBoxContainer/HBoxContainer5/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+text = "FFmpeg"
+
+[node name="LineFFmpeg" type="LineEdit" parent="VBoxContainer/MarginContainer/HomeContainer/MarginContainer/VBoxContainer/HBoxContainer5/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+text = "2025-01-02-git-0457aaf0d3-full_build-www.gyan.dev"
+alignment = 1
+editable = false
+select_all_on_focus = true
+
+[node name="TextureRectFFmpeg" type="TextureRect" parent="VBoxContainer/MarginContainer/HomeContainer/MarginContainer/VBoxContainer/HBoxContainer5/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(24, 0)
+layout_mode = 2
+size_flags_vertical = 4
+texture = ExtResource("8_dg77c")
+stretch_mode = 4
+
+[node name="LabelFFmpeg" type="RichTextLabel" parent="VBoxContainer/MarginContainer/HomeContainer/MarginContainer/VBoxContainer/HBoxContainer5/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+bbcode_enabled = true
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+vertical_alignment = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer/MarginContainer/HomeContainer/MarginContainer/VBoxContainer/HBoxContainer5/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/MarginContainer/HomeContainer/MarginContainer/VBoxContainer/HBoxContainer5/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+text = "FFprobe"
+
+[node name="LineFFprobe" type="LineEdit" parent="VBoxContainer/MarginContainer/HomeContainer/MarginContainer/VBoxContainer/HBoxContainer5/VBoxContainer/HBoxContainer2"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+text = "2025-01-02-git-0457aaf0d3-full_build-www.gyan.dev"
+alignment = 1
+editable = false
+select_all_on_focus = true
+
+[node name="TextureRectFFprobe" type="TextureRect" parent="VBoxContainer/MarginContainer/HomeContainer/MarginContainer/VBoxContainer/HBoxContainer5/VBoxContainer/HBoxContainer2"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(24, 0)
+layout_mode = 2
+size_flags_vertical = 4
+texture = ExtResource("8_dg77c")
+stretch_mode = 4
+
+[node name="LabelFFprobe" type="RichTextLabel" parent="VBoxContainer/MarginContainer/HomeContainer/MarginContainer/VBoxContainer/HBoxContainer5/VBoxContainer/HBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+bbcode_enabled = true
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+vertical_alignment = 1
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer/MarginContainer/HomeContainer/MarginContainer/VBoxContainer/HBoxContainer5/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/MarginContainer/HomeContainer/MarginContainer/VBoxContainer/HBoxContainer5/VBoxContainer/HBoxContainer3"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+text = "Python"
+
+[node name="LinePython" type="LineEdit" parent="VBoxContainer/MarginContainer/HomeContainer/MarginContainer/VBoxContainer/HBoxContainer5/VBoxContainer/HBoxContainer3"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+text = "3.10.6"
+alignment = 1
+editable = false
+select_all_on_focus = true
+
+[node name="TextureRectPython" type="TextureRect" parent="VBoxContainer/MarginContainer/HomeContainer/MarginContainer/VBoxContainer/HBoxContainer5/VBoxContainer/HBoxContainer3"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(24, 0)
+layout_mode = 2
+size_flags_vertical = 4
+texture = ExtResource("8_dg77c")
+stretch_mode = 4
+
+[node name="LabelPython" type="RichTextLabel" parent="VBoxContainer/MarginContainer/HomeContainer/MarginContainer/VBoxContainer/HBoxContainer5/VBoxContainer/HBoxContainer3"]
+unique_name_in_owner = true
+layout_mode = 2
+bbcode_enabled = true
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+vertical_alignment = 1
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="VBoxContainer/MarginContainer/HomeContainer/MarginContainer/VBoxContainer/HBoxContainer5/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/MarginContainer/HomeContainer/MarginContainer/VBoxContainer/HBoxContainer5/VBoxContainer/HBoxContainer4"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+text = "Colorthief"
+
+[node name="LinePythonColorthief" type="LineEdit" parent="VBoxContainer/MarginContainer/HomeContainer/MarginContainer/VBoxContainer/HBoxContainer5/VBoxContainer/HBoxContainer4"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+text = "0.2.1"
+alignment = 1
+editable = false
+select_all_on_focus = true
+
+[node name="TextureRectPythonColorthief" type="TextureRect" parent="VBoxContainer/MarginContainer/HomeContainer/MarginContainer/VBoxContainer/HBoxContainer5/VBoxContainer/HBoxContainer4"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(24, 0)
+layout_mode = 2
+size_flags_vertical = 4
+texture = ExtResource("8_dg77c")
+stretch_mode = 4
+
+[node name="LabelPythonColorthief" type="RichTextLabel" parent="VBoxContainer/MarginContainer/HomeContainer/MarginContainer/VBoxContainer/HBoxContainer5/VBoxContainer/HBoxContainer4"]
+unique_name_in_owner = true
+layout_mode = 2
+bbcode_enabled = true
+fit_content = true
+autowrap_mode = 0
+vertical_alignment = 1
+
+[node name="WarningLabel" type="RichTextLabel" parent="VBoxContainer/MarginContainer/HomeContainer/MarginContainer/VBoxContainer/HBoxContainer5"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(600, 0)
+layout_mode = 2
+size_flags_horizontal = 10
+tooltip_text = "sads"
+theme_override_constants/line_separation = 6
+bbcode_enabled = true
+
+[node name="CenterContainer" type="CenterContainer" parent="VBoxContainer/MarginContainer/HomeContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer/MarginContainer/HomeContainer/CenterContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/MarginContainer/HomeContainer/CenterContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="ButtonFileOptimizer" type="Button" parent="VBoxContainer/MarginContainer/HomeContainer/CenterContainer/VBoxContainer2/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 2
+theme_type_variation = &"HomeButton"
+text = "Optimize Files"
+icon = ExtResource("8_4c57u")
+
+[node name="ButtonThemeGenerator" type="Button" parent="VBoxContainer/MarginContainer/HomeContainer/CenterContainer/VBoxContainer2/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 2
+theme_type_variation = &"HomeButton"
+text = "Generate Themes"
+icon = ExtResource("9_efxa6")
+
+[node name="ButtonUtilities" type="Button" parent="VBoxContainer/MarginContainer/HomeContainer/CenterContainer/VBoxContainer2/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 2
+theme_type_variation = &"HomeButton"
+text = "Misc Utilities"
+icon = ExtResource("12_ycdy4")

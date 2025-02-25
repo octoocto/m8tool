@@ -1,0 +1,62 @@
+[gd_scene load_steps=10 format=3 uid="uid://c5kj1uj0ohnmm"]
+
+[ext_resource type="Script" uid="uid://cvm3mgr86bk6j" path="res://setting_bool.gd" id="1_0smb8"]
+[ext_resource type="Theme" uid="uid://tsr3tsg1bvgf" path="res://theme.tres" id="1_b6avg"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_uwpf7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_skb08"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_c1ghm"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kxv6b"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_na5e0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_o2jme"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_s1diy"]
+
+[node name="SettingBool" type="PanelContainer"]
+offset_right = 104.0
+offset_bottom = 24.0
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme = ExtResource("1_b6avg")
+theme_type_variation = &"SettingBackground"
+script = ExtResource("1_0smb8")
+setting_name = "test"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/separation = 0
+
+[node name="VSeparator" type="VSeparator" parent="HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 0
+theme_override_styles/separator = SubResource("StyleBoxEmpty_uwpf7")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 2
+theme_override_constants/separation = 4
+
+[node name="CheckButton" type="CheckBox" parent="HBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_skb08")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_c1ghm")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_kxv6b")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_na5e0")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_o2jme")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_s1diy")
+
+[node name="LabelName" type="Label" parent="HBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(160, 0)
+layout_mode = 2
+text = "test"

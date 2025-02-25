@@ -1,0 +1,34 @@
+# Godot 4+ specific ignores
+.godot/
+addons/explore-editor-theme/
+
+/build/
+
+# library/object/executable files
+*.dll
+*.a
+*.so
+*.framework
+*.o
+*.os
+*.exe
+*.x86_64
+
+# tmp files
+*.tmp
+
+# vscode files
+.vscode
+
+# scons cache
+.sconsign.dblite
+/.scons_cache/
+
+thirdparty/*/**
+
+# 3d modeling files
+*.blend
+*.blend1
+
+# image editing files
+*.kra

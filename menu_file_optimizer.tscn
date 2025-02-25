@@ -1,0 +1,602 @@
+[gd_scene load_steps=13 format=3 uid="uid://6o4el1w3epde"]
+
+[ext_resource type="Texture2D" uid="uid://bjmksriiwdper" path="res://assets/Folder.svg" id="1_ltoou"]
+[ext_resource type="Theme" uid="uid://tsr3tsg1bvgf" path="res://theme.tres" id="1_nh1vg"]
+[ext_resource type="Script" uid="uid://ugiy68xjlmo1" path="res://menu_file_optimizer.gd" id="2_wycy1"]
+[ext_resource type="Texture2D" uid="uid://qswgdy02yvvn" path="res://assets/StatusSuccess.png" id="4_nwsg4"]
+[ext_resource type="Texture2D" uid="uid://dgv333nyosua8" path="res://assets/StatusConverted.png" id="4_pfk2i"]
+[ext_resource type="Texture2D" uid="uid://yobcdxh25mvx" path="res://assets/StatusWarning.png" id="4_rbguo"]
+[ext_resource type="Texture2D" uid="uid://cxo1143go808o" path="res://assets/StatusNone.png" id="5_pfk2i"]
+[ext_resource type="Script" uid="uid://dqi728a8okm44" path="res://line_edit.gd" id="5_t7s0r"]
+[ext_resource type="PackedScene" uid="uid://c5kj1uj0ohnmm" path="res://setting_bool.tscn" id="7_od2cc"]
+
+[sub_resource type="SystemFont" id="SystemFont_e3q7n"]
+font_names = PackedStringArray("monospace")
+subpixel_positioning = 0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_g1q1u"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_e3q7n"]
+
+[node name="ContainerSamples" type="VBoxContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("1_nh1vg")
+script = ExtResource("2_wycy1")
+metadata/_tab_name = "samples"
+
+[node name="FileDialogSource" type="FileDialog" parent="."]
+unique_name_in_owner = true
+title = "Open a Directory"
+ok_button_text = "Select Current Folder"
+file_mode = 2
+access = 2
+use_native_dialog = true
+
+[node name="FileDialogDest" type="FileDialog" parent="."]
+unique_name_in_owner = true
+auto_translate_mode = 1
+title = "Open a Directory"
+ok_button_text = "Select Current Folder"
+file_mode = 2
+access = 2
+use_native_dialog = true
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="HFlowContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/HFlowContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HFlowContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HFlowContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HFlowContainer/MarginContainer/VBoxContainer/VBoxContainer3"]
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="IconPathIn" type="TextureRect" parent="MarginContainer/VBoxContainer/HFlowContainer/MarginContainer/VBoxContainer/VBoxContainer3/HBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 4
+texture = ExtResource("4_rbguo")
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HFlowContainer/MarginContainer/VBoxContainer/VBoxContainer3/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Input and output folders cannot be subpaths of each other."
+
+[node name="HBoxContainer6" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HFlowContainer/MarginContainer/VBoxContainer/VBoxContainer3"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HFlowContainer/MarginContainer/VBoxContainer/VBoxContainer3/HBoxContainer6"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+tooltip_text = "The folder containing files to be processed."
+mouse_filter = 1
+text = "Input Folder"
+vertical_alignment = 1
+
+[node name="ButtonOpenSrcPath" type="Button" parent="MarginContainer/VBoxContainer/HFlowContainer/MarginContainer/VBoxContainer/VBoxContainer3/HBoxContainer6"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.808998, 0.808998, 0.808998, 1)
+text = "Choose Folder... "
+icon = ExtResource("1_ltoou")
+
+[node name="LineEditSrcPath" type="TextEdit" parent="MarginContainer/VBoxContainer/HFlowContainer/MarginContainer/VBoxContainer/VBoxContainer3/HBoxContainer6"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "<none>"
+editable = false
+selecting_enabled = false
+virtual_keyboard_enabled = false
+middle_mouse_paste_enabled = false
+scroll_fit_content_height = true
+
+[node name="HBoxContainer7" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HFlowContainer/MarginContainer/VBoxContainer/VBoxContainer3"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HFlowContainer/MarginContainer/VBoxContainer/VBoxContainer3/HBoxContainer7"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+tooltip_text = "The folder to place all processed files."
+mouse_filter = 1
+text = "Output Folder"
+vertical_alignment = 1
+
+[node name="ButtonOpenDestPath" type="Button" parent="MarginContainer/VBoxContainer/HFlowContainer/MarginContainer/VBoxContainer/VBoxContainer3/HBoxContainer7"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.808998, 0.808998, 0.808998, 1)
+text = "Choose Folder... "
+icon = ExtResource("1_ltoou")
+
+[node name="LineEditDestPath" type="TextEdit" parent="MarginContainer/VBoxContainer/HFlowContainer/MarginContainer/VBoxContainer/VBoxContainer3/HBoxContainer7"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "<none>"
+editable = false
+selecting_enabled = false
+virtual_keyboard_enabled = false
+middle_mouse_paste_enabled = false
+scroll_fit_content_height = true
+
+[node name="HSeparator2" type="HSeparator" parent="MarginContainer/VBoxContainer/HFlowContainer/MarginContainer/VBoxContainer/VBoxContainer3"]
+visible = false
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HFlowContainer/MarginContainer/VBoxContainer/VBoxContainer3"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HFlowContainer/MarginContainer/VBoxContainer/VBoxContainer3/HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Process Method"
+vertical_alignment = 1
+
+[node name="OptionButton" type="OptionButton" parent="MarginContainer/VBoxContainer/HFlowContainer/MarginContainer/VBoxContainer/VBoxContainer3/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+tooltip_text = "Process to Output: Files will be processed and copied from the Input Folder to the Output Folder. 
+Files in the Input Folder will not be affected.
+
+Process in Place: Files will be moved from the Input Folder to the Output Folder, then processed and copied back to the Input Folder.
+
+Move Skipped Files to Output: Move files that would be skipped from the Input Folder to the Output Folder. No files will be converted or renamed."
+selected = 0
+item_count = 3
+popup/item_0/text = "Process to Output"
+popup/item_0/id = 0
+popup/item_1/text = "Process in Place, Backup to Output (Not Implemented Yet)"
+popup/item_1/id = 1
+popup/item_1/disabled = true
+popup/item_2/text = "Move Skipped Files to Output"
+popup/item_2/id = 2
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HFlowContainer/MarginContainer/VBoxContainer/VBoxContainer3"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HFlowContainer/MarginContainer/VBoxContainer/VBoxContainer3/HBoxContainer5"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+mouse_filter = 1
+text = "Skip Pattern"
+vertical_alignment = 1
+
+[node name="LineEditRemovePattern" type="LineEdit" parent="MarginContainer/VBoxContainer/HFlowContainer/MarginContainer/VBoxContainer/VBoxContainer3/HBoxContainer5"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+tooltip_text = "A comma-separated list of path patterns to skip during scanning/processing. \"Skipped\" files will not be converted nor copied to the output folder.
+
+Prepend a pattern with \"!\" to negate it. (ex: \"!*.wav\" matches any file that is not a wav)"
+theme = ExtResource("1_nh1vg")
+text = "*.txt,*__MACOSX*,*.DS_Store,*/.*"
+script = ExtResource("5_t7s0r")
+
+[node name="CheckButtonSkipPatternAnd" type="CheckBox" parent="MarginContainer/VBoxContainer/HFlowContainer/MarginContainer/VBoxContainer/VBoxContainer3/HBoxContainer5"]
+unique_name_in_owner = true
+layout_mode = 2
+tooltip_text = "If checked, only skip a file if it matches ALL of the skip patterns (mostly useful if using negated patterns with \"!\")"
+text = "AND Logic"
+
+[node name="HBoxContainer8" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HFlowContainer/MarginContainer/VBoxContainer/VBoxContainer3"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HFlowContainer/MarginContainer/VBoxContainer/VBoxContainer3/HBoxContainer8"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+mouse_filter = 1
+text = "Ignore Pattern"
+vertical_alignment = 1
+
+[node name="LineEditIgnorePattern" type="LineEdit" parent="MarginContainer/VBoxContainer/HFlowContainer/MarginContainer/VBoxContainer/VBoxContainer3/HBoxContainer8"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+tooltip_text = "A comma-separated list of path patterns to be ignored.
+
+\"Ignored\" files will be copied as-is to the output folder, but will not be converted nor renamed."
+text = "Bundles/*,Instruments/*,Renders/*,Scales/*,Songs/*,System/*,Themes/*"
+script = ExtResource("5_t7s0r")
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HFlowContainer/MarginContainer/VBoxContainer/VBoxContainer3"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 16
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HFlowContainer/MarginContainer/VBoxContainer/VBoxContainer3/HBoxContainer4"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HFlowContainer/MarginContainer/VBoxContainer/VBoxContainer3/HBoxContainer4/VBoxContainer"]
+layout_mode = 2
+text = "
+Converter"
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer/HFlowContainer/MarginContainer/VBoxContainer/VBoxContainer3/HBoxContainer4/VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer8" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HFlowContainer/MarginContainer/VBoxContainer/VBoxContainer3/HBoxContainer4/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="SettingConvertFormats" parent="MarginContainer/VBoxContainer/HFlowContainer/MarginContainer/VBoxContainer/VBoxContainer3/HBoxContainer4/VBoxContainer/HBoxContainer8" instance=ExtResource("7_od2cc")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 2
+tooltip_text = "If enabled, converts any files with the given formats (comma-separated list) to a WAV file. The WAV file will have the bit depth and sample rate according to the settings below."
+mouse_filter = 1
+setting_name = "Convert other formats to WAV:"
+setting_name_min_width = 220
+
+[node name="LineEditConvertFormats" type="LineEdit" parent="MarginContainer/VBoxContainer/HFlowContainer/MarginContainer/VBoxContainer/VBoxContainer3/HBoxContainer4/VBoxContainer/HBoxContainer8"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "mp3,flac"
+expand_to_text_length = true
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HFlowContainer/MarginContainer/VBoxContainer/VBoxContainer3/HBoxContainer4/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="SettingConvertBitDepth" parent="MarginContainer/VBoxContainer/HFlowContainer/MarginContainer/VBoxContainer/VBoxContainer3/HBoxContainer4/VBoxContainer/HBoxContainer2" instance=ExtResource("7_od2cc")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 2
+tooltip_text = "If enabled, lower the bit depth of WAV files to the specified bit depth if they are above.
+
+16-bit is the recommended option, which is a good balance between audio quality and minimizing SD card stress."
+mouse_filter = 1
+value = true
+setting_name = "Convert bit depth if above:"
+setting_name_min_width = 220
+
+[node name="OptionConvertBitDepth" type="OptionButton" parent="MarginContainer/VBoxContainer/HFlowContainer/MarginContainer/VBoxContainer/VBoxContainer3/HBoxContainer4/VBoxContainer/HBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+selected = 1
+item_count = 4
+popup/item_0/text = "8 bit"
+popup/item_0/id = 1
+popup/item_1/text = "16 bit"
+popup/item_1/id = 2
+popup/item_2/text = "24 bit"
+popup/item_2/id = 3
+popup/item_3/text = "32 bit"
+popup/item_3/id = 3
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HFlowContainer/MarginContainer/VBoxContainer/VBoxContainer3/HBoxContainer4/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="SettingConvertSampleRate" parent="MarginContainer/VBoxContainer/HFlowContainer/MarginContainer/VBoxContainer/VBoxContainer3/HBoxContainer4/VBoxContainer/HBoxContainer3" instance=ExtResource("7_od2cc")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 2
+tooltip_text = "If enabled, lower the sample rate of WAV files to the specified sample rate if they are above.
+
+44100 Hz is the recommended option, which is a good balance between audio quality and minimizing SD card stress."
+mouse_filter = 1
+value = true
+setting_name = "Convert sample rate if above:"
+setting_name_min_width = 220
+
+[node name="OptionConvertSampleRate" type="OptionButton" parent="MarginContainer/VBoxContainer/HFlowContainer/MarginContainer/VBoxContainer/VBoxContainer3/HBoxContainer4/VBoxContainer/HBoxContainer3"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+selected = 0
+item_count = 2
+popup/item_0/text = "44100 Hz"
+popup/item_0/id = 1
+popup/item_1/text = "48000 Hz"
+popup/item_1/id = 2
+
+[node name="SettingConvertMono" parent="MarginContainer/VBoxContainer/HFlowContainer/MarginContainer/VBoxContainer/VBoxContainer3/HBoxContainer4/VBoxContainer" instance=ExtResource("7_od2cc")]
+unique_name_in_owner = true
+layout_mode = 2
+tooltip_text = "Automatically convert stereo files to mono if both audio channels are the same.
+
+This check is done by inverting the polarity of the 2nd channel and adding it to the 1st channel. If the average volume of the result is less than a set threshold (-90 dB by default), it will be converted to mono."
+value = true
+setting_name = "Convert to mono automatically"
+setting_name_min_width = 240
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HFlowContainer/MarginContainer/VBoxContainer/VBoxContainer3/HBoxContainer4"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer/HFlowContainer/MarginContainer/VBoxContainer/VBoxContainer3/HBoxContainer4/VBoxContainer2"]
+layout_mode = 2
+text = "
+Renamer"
+
+[node name="HSeparator2" type="HSeparator" parent="MarginContainer/VBoxContainer/HFlowContainer/MarginContainer/VBoxContainer/VBoxContainer3/HBoxContainer4/VBoxContainer2"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HFlowContainer/MarginContainer/VBoxContainer/VBoxContainer3/HBoxContainer4/VBoxContainer2"]
+layout_mode = 2
+
+[node name="SettingMinimizePath" parent="MarginContainer/VBoxContainer/HFlowContainer/MarginContainer/VBoxContainer/VBoxContainer3/HBoxContainer4/VBoxContainer2/HBoxContainer" instance=ExtResource("7_od2cc")]
+unique_name_in_owner = true
+layout_mode = 2
+tooltip_text = "Minimizes the path length by removing any duplicate words and unnecessary characters in the path. The words in the final output path will be space separated. "
+value = true
+setting_name = "Minimize path"
+setting_name_min_width = 120
+
+[node name="OptionMinimizePath" type="OptionButton" parent="MarginContainer/VBoxContainer/HFlowContainer/MarginContainer/VBoxContainer/VBoxContainer3/HBoxContainer4/VBoxContainer2/HBoxContainer"]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+selected = 1
+item_count = 3
+popup/item_0/text = "Minimize folder names only"
+popup/item_0/id = 0
+popup/item_1/text = "Minimize folder & .WAV file names"
+popup/item_1/id = 1
+popup/item_2/text = "Minimize folder & all file names"
+popup/item_2/id = 2
+
+[node name="HBoxContainer6" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HFlowContainer/MarginContainer/VBoxContainer/VBoxContainer3/HBoxContainer4/VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="VSeparator" type="VSeparator" parent="MarginContainer/VBoxContainer/HFlowContainer/MarginContainer/VBoxContainer/VBoxContainer3/HBoxContainer4/VBoxContainer2/HBoxContainer6"]
+layout_mode = 2
+theme_override_constants/separation = 24
+
+[node name="SettingMinimizePathSep" parent="MarginContainer/VBoxContainer/HFlowContainer/MarginContainer/VBoxContainer/VBoxContainer3/HBoxContainer4/VBoxContainer2/HBoxContainer6" instance=ExtResource("7_od2cc")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 2
+value = true
+setting_name = "Replace spaces between words with:"
+setting_name_min_width = 220
+parent_setting = NodePath("../../HBoxContainer/SettingMinimizePath")
+
+[node name="LineEditMinimizePathSep" type="LineEdit" parent="MarginContainer/VBoxContainer/HFlowContainer/MarginContainer/VBoxContainer/VBoxContainer3/HBoxContainer4/VBoxContainer2/HBoxContainer6"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_fonts/font = SubResource("SystemFont_e3q7n")
+text = "_"
+alignment = 1
+max_length = 1
+expand_to_text_length = true
+draw_control_chars = true
+select_all_on_focus = true
+
+[node name="HBoxContainer8" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HFlowContainer/MarginContainer/VBoxContainer/VBoxContainer3/HBoxContainer4/VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="VSeparator" type="VSeparator" parent="MarginContainer/VBoxContainer/HFlowContainer/MarginContainer/VBoxContainer/VBoxContainer3/HBoxContainer4/VBoxContainer2/HBoxContainer8"]
+layout_mode = 2
+theme_override_constants/separation = 24
+
+[node name="SettingMinimizePathKeepNumbers" parent="MarginContainer/VBoxContainer/HFlowContainer/MarginContainer/VBoxContainer/VBoxContainer3/HBoxContainer4/VBoxContainer2/HBoxContainer8" instance=ExtResource("7_od2cc")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 2
+tooltip_text = "If enabled, lone numbers are never removed when minimizing a path."
+setting_name = "Keep numbers"
+setting_name_min_width = 220
+parent_setting = NodePath("../../HBoxContainer/SettingMinimizePath")
+
+[node name="SettingPathCleanName" parent="MarginContainer/VBoxContainer/HFlowContainer/MarginContainer/VBoxContainer/VBoxContainer3/HBoxContainer4/VBoxContainer2" instance=ExtResource("7_od2cc")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_horizontal = 2
+value = true
+setting_name = "Remove unsupported characters"
+setting_name_min_width = 220
+
+[node name="SettingPathRemovePrefixes" parent="MarginContainer/VBoxContainer/HFlowContainer/MarginContainer/VBoxContainer/VBoxContainer3/HBoxContainer4/VBoxContainer2" instance=ExtResource("7_od2cc")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 2
+tooltip_text = "If all files in a folder start with a common prefix, remove the prefix.
+
+For example, if all files in folder start with \"kick-\" e.g. \"kick1.wav\",
+\"kick2.wav\", etc., then the word \"kick\" will be removed from all these files."
+value = true
+setting_name = "Remove common prefixes in filenames"
+setting_name_min_width = 220
+
+[node name="SettingPathRemoveSuffixes" parent="MarginContainer/VBoxContainer/HFlowContainer/MarginContainer/VBoxContainer/VBoxContainer3/HBoxContainer4/VBoxContainer2" instance=ExtResource("7_od2cc")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 2
+tooltip_text = "If all files in a folder end with a common suffix, remove the suffix."
+setting_name = "Remove common suffixes in filenames"
+setting_name_min_width = 220
+
+[node name="SettingPathUppercase" parent="MarginContainer/VBoxContainer/HFlowContainer/MarginContainer/VBoxContainer/VBoxContainer3/HBoxContainer4/VBoxContainer2" instance=ExtResource("7_od2cc")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 2
+tooltip_text = "Change the entire path to be uppercase to match the case of files created by the M8."
+value = true
+setting_name = "Change path to uppercase"
+setting_name_min_width = 220
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HFlowContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="ButtonScan" type="Button" parent="MarginContainer/VBoxContainer/HFlowContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+tooltip_text = "Perform a scan on the source folder and show all files that would be modified if processed."
+disabled = true
+text = "Scan Files"
+
+[node name="ButtonProcess" type="Button" parent="MarginContainer/VBoxContainer/HFlowContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+tooltip_text = "Process files in the source folder."
+disabled = true
+text = "Process Files"
+
+[node name="TextEdit" type="RichTextLabel" parent="MarginContainer/VBoxContainer/HFlowContainer"]
+visible = false
+custom_minimum_size = Vector2(480, 0)
+layout_mode = 2
+
+[node name="ConsoleOutput" type="RichTextLabel" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(0, 128)
+layout_mode = 2
+focus_mode = 2
+bbcode_enabled = true
+text = "test"
+scroll_following = true
+autowrap_mode = 0
+selection_enabled = true
+
+[node name="ProgressBar" type="ProgressBar" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+show_percentage = false
+
+[node name="LabelProgress" type="Label" parent="MarginContainer/VBoxContainer/ProgressBar"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -14.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "0.0%"
+
+[node name="LabelFile" type="Label" parent="MarginContainer/VBoxContainer/ProgressBar"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -14.0
+grow_horizontal = 2
+grow_vertical = 0
+horizontal_alignment = 2
+
+[node name="Tree" type="Tree" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/focus = SubResource("StyleBoxEmpty_g1q1u")
+columns = 4
+hide_root = true
+select_mode = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="ButtonFilesTotal" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+tooltip_text = "Total files: 0"
+theme_type_variation = &"ButtonStatusBar"
+text = "0"
+icon = ExtResource("1_ltoou")
+alignment = 0
+
+[node name="ButtonFilesConverted" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+tooltip_text = "Converted files: 0"
+theme_type_variation = &"ButtonStatusBar"
+toggle_mode = true
+text = "0"
+icon = ExtResource("4_pfk2i")
+alignment = 0
+
+[node name="ButtonFilesCopied" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+tooltip_text = "Copied (unmodified) files: 0"
+theme_type_variation = &"ButtonStatusBar"
+toggle_mode = true
+text = "0"
+icon = ExtResource("4_nwsg4")
+alignment = 0
+
+[node name="ButtonFilesSkipped" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+tooltip_text = "Skipped files: 0"
+theme_type_variation = &"ButtonStatusBar"
+toggle_mode = true
+text = "0"
+icon = ExtResource("5_pfk2i")
+alignment = 0
+
+[node name="StatusBar" type="RichTextLabel" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+tooltip_text = "0 files found
+0 files copied (unmodified)
+0 files converted
+0 files skipped"
+theme_override_styles/normal = SubResource("StyleBoxEmpty_e3q7n")
+bbcode_enabled = true
+text = "[p tab_stops=80,80,80]📁 0	🟢 0	🟠 0	⚪ 0[/p]"
+fit_content = true

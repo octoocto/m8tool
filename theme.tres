@@ -1,0 +1,128 @@
+[gd_resource type="Theme" load_steps=20 format=3 uid="uid://tsr3tsg1bvgf"]
+
+[ext_resource type="FontFile" uid="uid://bownrtis0usq8" path="res://assets/CommitMono-400-Regular.otf" id="1_e1x85"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cjfk0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vj6dk"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1rmny"]
+content_margin_bottom = 6.0
+bg_color = Color(0.6, 0.6, 0.6, 0.25)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yin2u"]
+content_margin_bottom = 6.0
+bg_color = Color(0.6, 0.6, 0.6, 0.1)
+border_width_bottom = 2
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yin2u"]
+content_margin_bottom = 6.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mihib"]
+content_margin_bottom = 6.0
+draw_center = false
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_110ce"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_05tig"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1rmny"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_05tig"]
+content_margin_left = 20.0
+content_margin_right = 20.0
+bg_color = Color(0.15, 0.15, 0.15, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_110ce"]
+content_margin_left = 20.0
+content_margin_right = 20.0
+bg_color = Color(0.15, 0.15, 0.15, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vj6dk"]
+bg_color = Color(0.2, 0.2, 0.2, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_e1x85"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cjfk0"]
+content_margin_top = 8.0
+bg_color = Color(1, 1, 1, 1)
+draw_center = false
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+expand_margin_bottom = 4.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mihib"]
+content_margin_top = 2.0
+content_margin_bottom = 2.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ttqs8"]
+content_margin_left = 8.0
+content_margin_top = 2.0
+content_margin_right = 8.0
+content_margin_bottom = 2.0
+bg_color = Color(0, 0, 0, 0.25)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5kstl"]
+content_margin_left = 8.0
+content_margin_top = 8.0
+content_margin_right = 8.0
+content_margin_bottom = 8.0
+bg_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e1x85"]
+content_margin_top = 8.0
+content_margin_bottom = 8.0
+
+[resource]
+default_font = ExtResource("1_e1x85")
+default_font_size = 12
+ButtonStatusBar/base_type = &"Button"
+ButtonStatusBar/styles/disabled = SubResource("StyleBoxEmpty_cjfk0")
+ButtonStatusBar/styles/focus = SubResource("StyleBoxEmpty_vj6dk")
+ButtonStatusBar/styles/hover = SubResource("StyleBoxFlat_1rmny")
+ButtonStatusBar/styles/hover_pressed = SubResource("StyleBoxFlat_yin2u")
+ButtonStatusBar/styles/normal = SubResource("StyleBoxEmpty_yin2u")
+ButtonStatusBar/styles/pressed = SubResource("StyleBoxFlat_mihib")
+FlatColorPickerButton/base_type = &"ColorPickerButton"
+FlatColorPickerButton/styles/hover = SubResource("StyleBoxEmpty_110ce")
+FlatColorPickerButton/styles/normal = SubResource("StyleBoxEmpty_05tig")
+FlatColorPickerButton/styles/pressed = SubResource("StyleBoxEmpty_1rmny")
+HomeButton/base_type = &"Button"
+HomeButton/styles/hover = SubResource("StyleBoxFlat_05tig")
+HomeButton/styles/normal = SubResource("StyleBoxFlat_110ce")
+HomePanelContainer/base_type = &"PanelContainer"
+HomePanelContainer/styles/panel = SubResource("StyleBoxFlat_vj6dk")
+MarginContainer/constants/margin_bottom = 8
+MarginContainer/constants/margin_left = 8
+MarginContainer/constants/margin_right = 8
+MarginContainer/constants/margin_top = 8
+ProgressBar/styles/background = SubResource("StyleBoxEmpty_e1x85")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_cjfk0")
+SettingBackground/base_type = &"PanelContainer"
+SettingBackground/styles/panel = SubResource("StyleBoxEmpty_mihib")
+SettingControl/base_type = &"PanelContainer"
+SettingControl/styles/panel = SubResource("StyleBoxFlat_ttqs8")
+TooltipLabel/font_sizes/font_size = 12
+TooltipPanel/styles/panel = SubResource("StyleBoxFlat_5kstl")
+Tree/font_sizes/font_size = 12
+Tree/font_sizes/title_button_font_size = 12
+Tree/fonts/font = ExtResource("1_e1x85")
+VScrollBar/styles/grabber = SubResource("StyleBoxFlat_e1x85")

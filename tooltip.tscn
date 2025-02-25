@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://cfvgbxygne8ho"]
+
+[ext_resource type="Theme" uid="uid://tsr3tsg1bvgf" path="res://theme.tres" id="1_gwequ"]
+
+[node name="Tooltip" type="RichTextLabel"]
+custom_minimum_size = Vector2(400, 0)
+offset_right = 400.0
+offset_bottom = 36.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme = ExtResource("1_gwequ")
+fit_content = true

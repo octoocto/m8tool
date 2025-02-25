@@ -1,0 +1,33 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="m8tool"
+run/main_scene="res://main.tscn"
+config/features=PackedStringArray("4.4", "Forward Plus")
+config/icon="uid://clfdgt7qvskv1"
+
+[debug]
+
+gdscript/warnings/shadowed_variable=0
+gdscript/warnings/untyped_declaration=1
+gdscript/warnings/integer_division=0
+
+[display]
+
+window/size/viewport_width=960
+window/size/viewport_height=720
+window/size/resizable=false
+window/size/transparent=true
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/explore-editor-theme/plugin.cfg")
