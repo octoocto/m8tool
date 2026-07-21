@@ -1,0 +1,119 @@
+[gd_resource type="Theme" format=3 uid="uid://b4c75p2vhalca"]
+
+[ext_resource type="FontFile" uid="uid://db3ptsg6g38yj" path="res://theme/CommitMono-700-Regular.otf" id="1_nrt0f"]
+[ext_resource type="FontFile" uid="uid://i2xhuui1ya56" path="res://theme/CommitMono-400-Regular.otf" id="2_4yjuo"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4ytkp"]
+content_margin_left = 8.0
+content_margin_top = 4.0
+content_margin_right = 8.0
+content_margin_bottom = 4.0
+bg_color = Color(0.225, 0.225, 0.225, 0.6)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nrt0f"]
+content_margin_left = 8.0
+content_margin_top = 4.0
+content_margin_right = 8.0
+content_margin_bottom = 4.0
+bg_color = Color(0.1, 0.1, 0.1, 0.6)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0xm2m"]
+content_margin_top = 4.0
+content_margin_bottom = 4.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nrt0f"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4yjuo"]
+content_margin_left = 8.0
+content_margin_top = 4.0
+content_margin_bottom = 4.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h2yge"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.072842695, 0.072842605, 0.072842635, 0.6)
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 0.6)
+border_blend = true
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lquwl"]
+bg_color = Color(0.05, 0.05, 0.05, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rucdj"]
+content_margin_top = 1.0
+content_margin_bottom = 1.0
+bg_color = Color(0.1, 0.1, 0.1, 0.3)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6l1ye"]
+bg_color = Color(0.95, 0.95, 0.95, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4yjuo"]
+content_margin_left = 8.0
+content_margin_top = 2.0
+content_margin_right = 8.0
+content_margin_bottom = 2.0
+bg_color = Color(0.05, 0.05, 0.05, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.1, 0.1, 0.1, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gco77"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gco77"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.15, 0.15, 0.15, 1)
+
+[resource]
+default_font = ExtResource("2_4yjuo")
+default_font_size = 12
+Button/styles/hover = SubResource("StyleBoxFlat_4ytkp")
+Button/styles/normal = SubResource("StyleBoxFlat_nrt0f")
+CheckButton/styles/normal = SubResource("StyleBoxEmpty_0xm2m")
+HeaderSmall/constants/outline_size = 0
+HeaderSmall/fonts/font = ExtResource("1_nrt0f")
+HeaderSmall/styles/normal = SubResource("StyleBoxEmpty_nrt0f")
+Label/styles/normal = SubResource("StyleBoxEmpty_4yjuo")
+LineEdit/styles/normal = SubResource("StyleBoxFlat_h2yge")
+MarginContainer/constants/margin_bottom = 16
+MarginContainer/constants/margin_left = 16
+MarginContainer/constants/margin_right = 16
+MarginContainer/constants/margin_top = 16
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_lquwl")
+ProgressBar/styles/background = SubResource("StyleBoxFlat_rucdj")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_6l1ye")
+TooltipLabel/colors/font_color = Color(1, 1, 1, 1)
+TooltipPanel/styles/panel = SubResource("StyleBoxFlat_4yjuo")
+Tree/colors/font_color = Color(1, 1, 1, 1)
+Tree/constants/check_h_separation = 12
+Tree/constants/draw_guides = 0
+Tree/constants/draw_relationship_lines = 1
+Tree/styles/panel = SubResource("StyleBoxEmpty_gco77")
+TreeItemHeader/fonts/font = ExtResource("1_nrt0f")
+TreeItemHeader/styles/panel = SubResource("StyleBoxFlat_gco77")

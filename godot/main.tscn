@@ -1,0 +1,321 @@
+[gd_scene format=3 uid="uid://2tfplxi5fws5"]
+
+[ext_resource type="Theme" uid="uid://b4c75p2vhalca" path="res://theme/theme.tres" id="1_0xm2m"]
+[ext_resource type="Texture2D" uid="uid://5mw5fl2p3h74" path="res://icon/folder.svg" id="3_5vw27"]
+[ext_resource type="Script" uid="uid://v147r08stwkm" path="res://main.gd" id="3_h2yge"]
+[ext_resource type="Texture2D" uid="uid://dhfeowsig8bn6" path="res://icon/x.svg" id="3_kek77"]
+[ext_resource type="Script" uid="uid://c4q1q3puvkehd" path="res://tree_options.gd" id="4_1bvp3"]
+[ext_resource type="Texture2D" uid="uid://b5onm1vq0seem" path="res://icon/device-ipad.svg" id="4_4c57u"]
+[ext_resource type="Script" uid="uid://s721xvw00kd4" path="res://files.gd" id="5_5vw27"]
+[ext_resource type="Texture2D" uid="uid://b4ighd4yykcvy" path="res://icon/StatusSuccess.png" id="5_272bh"]
+[ext_resource type="Texture2D" uid="uid://xlnoa6gbga82" path="res://icon/StatusConverted.png" id="6_5vw27"]
+[ext_resource type="Texture2D" uid="uid://d1808a6mwfr07" path="res://icon/StatusSkip.png" id="7_kek77"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4c57u"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.1, 0.1, 0.1, 0.6)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_efxa6"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0, 0, 0, 0.6)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kek77"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.225, 0.225, 0.225, 0.6)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+corner_detail = 5
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_272bh"]
+
+[node name="Control" type="PanelContainer" unique_id=1104096818]
+texture_filter = 6
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_0xm2m")
+script = ExtResource("3_h2yge")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=199635203]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=472857421]
+layout_mode = 2
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=1162189014]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer4" unique_id=845960677]
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"HeaderSmall"
+text = "m8tool"
+
+[node name="ButtonClose" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer4" unique_id=1560104013]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_4c57u")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_efxa6")
+theme_override_styles/hover = SubResource("StyleBoxFlat_kek77")
+icon = ExtResource("3_kek77")
+icon_alignment = 1
+expand_icon = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=1176548179]
+layout_mode = 2
+
+[node name="LabelSource" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=707711928]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(160, 0)
+layout_mode = 2
+size_flags_vertical = 1
+tooltip_text = "the source drive of the m8. this will usually be its SD card or USB drive if the m8 is connected via USB."
+mouse_filter = 1
+text = "source drive"
+vertical_alignment = 1
+
+[node name="ButtonSelectSourceDir" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=668813472]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "(choose directory...)"
+icon = ExtResource("3_5vw27")
+alignment = 0
+expand_icon = true
+
+[node name="OptionSourceDrive" type="OptionButton" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=637791176]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+expand_icon = true
+item_count = 1
+popup/item_0/id = 0
+
+[node name="DriveIcon" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=41519602]
+custom_minimum_size = Vector2(18, 0)
+layout_mode = 2
+texture = ExtResource("4_4c57u")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="CheckSourceDriveMode" type="CheckButton" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=185124912]
+unique_name_in_owner = true
+layout_mode = 2
+tooltip_text = "switch between choosing a drive or a directory for the source"
+expand_icon = true
+
+[node name="FolderIcon" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=1862542245]
+custom_minimum_size = Vector2(18, 0)
+layout_mode = 2
+texture = ExtResource("3_5vw27")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=1519058761]
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer2" unique_id=731102641]
+custom_minimum_size = Vector2(160, 0)
+layout_mode = 2
+size_flags_vertical = 1
+tooltip_text = "the directory to store backups. each task will create incremental backups in this folder."
+mouse_filter = 1
+text = "backup directory"
+vertical_alignment = 1
+
+[node name="ButtonSelectBackupDir" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer2" unique_id=1332039907]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "(choose directory...)"
+icon = ExtResource("3_5vw27")
+alignment = 0
+expand_icon = true
+
+[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer" unique_id=711633265]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+theme_type_variation = &"HeaderSmall"
+text = "tasks"
+vertical_alignment = 1
+
+[node name="TreeOptions" type="Tree" parent="MarginContainer/VBoxContainer" unique_id=406674871]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+size_flags_vertical = 3
+columns = 2
+hide_root = true
+select_mode = 1
+script = ExtResource("4_1bvp3")
+
+[node name="CheckButton" type="CheckButton" parent="MarginContainer/VBoxContainer" unique_id=2036967351]
+visible = false
+layout_mode = 2
+tooltip_text = "creates a full backup of the drive"
+button_pressed = true
+text = "backup drive"
+flat = true
+
+[node name="CheckButton2" type="CheckButton" parent="MarginContainer/VBoxContainer" unique_id=880342192]
+visible = false
+layout_mode = 2
+tooltip_text = "converts non-wav audio samples to wav, and optimizes existing wav files"
+text = "convert samples"
+flat = true
+
+[node name="CheckButton3" type="CheckButton" parent="MarginContainer/VBoxContainer" unique_id=1919215589]
+visible = false
+layout_mode = 2
+tooltip_text = "renames folders/files in order to shorten sample paths as much as possible"
+disabled = true
+text = "minimize paths"
+flat = true
+
+[node name="CheckButton4" type="CheckButton" parent="MarginContainer/VBoxContainer" unique_id=1214455559]
+visible = false
+layout_mode = 2
+text = "clean drive"
+flat = true
+
+[node name="Label3" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1853149445]
+visible = false
+layout_mode = 2
+text = "* tasks will run in this order: backup → convert → minimize → clean"
+vertical_alignment = 1
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=124376149]
+layout_mode = 2
+
+[node name="ButtonStart" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer3" unique_id=1916889925]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+tooltip_text = "run all enabled tasks (in order of top-to-bottom)."
+text = "run tasks"
+
+[node name="ButtonDryStart" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer3" unique_id=269881010]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+tooltip_text = "dry run all enabled tasks.
+prints what would have been done, but doesn't actually do anything."
+text = "dry run tasks"
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=1882588517]
+layout_mode = 2
+
+[node name="ProgressStatusLeft" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer5" unique_id=1478398969]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="ProgressStatusRight" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer5" unique_id=903077092]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+horizontal_alignment = 2
+text_overrun_behavior = 2
+
+[node name="ProgressBar" type="ProgressBar" parent="MarginContainer/VBoxContainer" unique_id=1084119922]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_vertical = 1
+value = 50.0
+show_percentage = false
+
+[node name="TabContainer" type="TabContainer" parent="MarginContainer/VBoxContainer" unique_id=223348874]
+layout_mode = 2
+size_flags_vertical = 3
+current_tab = 0
+
+[node name="Files" type="VBoxContainer" parent="MarginContainer/VBoxContainer/TabContainer" unique_id=341522515]
+unique_name_in_owner = true
+layout_mode = 2
+script = ExtResource("5_5vw27")
+metadata/_tab_index = 0
+
+[node name="FileTree" type="Tree" parent="MarginContainer/VBoxContainer/TabContainer/Files" unique_id=1895578591]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+hide_root = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/TabContainer/Files" unique_id=512674475]
+visible = false
+layout_mode = 2
+
+[node name="ButtonTotal" type="Button" parent="MarginContainer/VBoxContainer/TabContainer/Files/HBoxContainer" unique_id=1802830173]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "1"
+icon = SubResource("CompressedTexture2D_272bh")
+flat = true
+alignment = 0
+
+[node name="ButtonGood" type="Button" parent="MarginContainer/VBoxContainer/TabContainer/Files/HBoxContainer" unique_id=803169039]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "1"
+icon = ExtResource("5_272bh")
+flat = true
+alignment = 0
+
+[node name="ButtonConverted" type="Button" parent="MarginContainer/VBoxContainer/TabContainer/Files/HBoxContainer" unique_id=174112788]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "1"
+icon = ExtResource("6_5vw27")
+flat = true
+alignment = 0
+
+[node name="ButtonSkipped" type="Button" parent="MarginContainer/VBoxContainer/TabContainer/Files/HBoxContainer" unique_id=1281965151]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "1"
+icon = ExtResource("7_kek77")
+flat = true
+alignment = 0
+
+[node name="Output" type="RichTextLabel" parent="MarginContainer/VBoxContainer/TabContainer" unique_id=291329356]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+scroll_following = true
+metadata/_tab_index = 1
+
+[node name="FileDialog" type="FileDialog" parent="." unique_id=910508335]
+unique_name_in_owner = true
+title = "Open a Directory"
+file_mode = 2
+use_native_dialog = true
