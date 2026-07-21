@@ -1,0 +1,77 @@
+name: Build GDExtension
+on:
+  workflow_call:
+  push:
+  pull_request:
+  merge_group:
+
+env:
+  LIBNAME: m8tool
+
+jobs:
+  build:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - platform: linux
+            arch: x86_64
+            os: ubuntu-22.04
+
+          - platform: windows
+            arch: x86_64
+            os: windows-latest
+            # host: x86_64-w64-mingw32
+
+          - platform: macos
+            arch: universal
+            os: macos-latest
+
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          submodules: true
+
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.14'
+
+      - uses: actions-rust-lang/setup-rust-toolchain@v1
+
+      - name: Compile CLI
+        shell: bash
+        run: python build.py cli --release
+        env:
+          RUSTFLAGS: "-Awarnings"
+
+      - name: Compile GUI
+        shell: bash
+        run: python build.py gui --release
+        env:
+          RUSTFLAGS: "-Awarnings"
+
+      - name: Upload Artifact (CLI)
+        uses: actions/upload-artifact@v7
+        with:
+          name: ${{ env.LIBNAME }}-${{ matrix.platform }}-${{ matrix.arch }}
+          path: |
+            ${{ github.workspace }}/build/cli/*
+
+      - name: Upload Artifact (GUI)
+        uses: actions/upload-artifact@v7
+        with:
+          name: ${{ env.LIBNAME }}-gui-${{ matrix.platform }}-${{ matrix.arch }}
+          path: |
+            ${{ github.workspace }}/build/gui/*
+
+  # merge:
+  #   runs-on: ubuntu-22.04
+  #   needs: build
+  #   steps:
+  #     - name: Merge Artifacts
+  #       uses: actions/upload-artifact/merge@v4
+  #       with:
+  #         name: ${{ env.LIBNAME }}
+  #         pattern: m8tool*
+  #         separate-directories: true
